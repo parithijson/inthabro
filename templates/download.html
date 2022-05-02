@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="{% static 'css/download.css' %}">
+
+    <title>Intha🤲bro/Download</title>
+</head>
+
+<body>
+
+
+
+    <div class="container-fluid main">
+        <div class="container-fluid text">
+            <h2>Intha🤲bro</h2>
+            <img class="img-thumbnail" src="{{url.thumbnail_url}}" alt="">
+            <h6>{{url.title}}<h6>
+        </div>
+
+        <div class="container-fluid form">
+            <form action="{% url 'download' %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    {% for x in hello %}
+                    <div class="col-6 res">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="inlineCheckbox1" value="{{x.itag}}"
+                                name="itag">
+                            <label class="form-check-label" for="inlineCheckbox1">{{x.resolution}}</label>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn">Download</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-text">Yeah currently I'm working for high resolution support!</p>
+        <!-- Button trigger modal -->
+        <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            More info 👆
+        </a>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Why you can't get a High quality videos</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        YouTube only supporting a streaming technique called Dynamic Adaptive Streaming over HTTP (DASH)
+                        for 1080p and above.
+
+                        In the context of pytube the python library to download yt videos , the implications are for the
+                        highest quality streams; that now need to
+                        download both the audio and video tracks and then post-process them with software like FFmpeg to
+                        merge them.
+
+
+
+                        <div class="span">
+                            So, actually i'm using free web server and hosting that has some limitaions in here i'm
+                            storing a videos to buffer, so that the video will never stored in the server , if we want
+                            to
+                            combine the audio and video we have to store in the server and process both,I requries
+                            storage
+                            and high speed server to process,
+                            so if want a high quality video please donate me to host this app on best servers like AWS
+                            and
+                            google cloud😊😢
+
+                            mail:parithipotter007@gmail.com
+
+                            <span>High quality video vae tha venuma nanbargalae</span>
+                        </div>
+
+                        The legacy streams that contain the audio and video in a single file (referred to as
+                        “progressive download”) are still available, but only for resolutions 720p and below.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
